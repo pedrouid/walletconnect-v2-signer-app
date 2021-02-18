@@ -21,9 +21,13 @@ const App = () => {
   useEffect(() => {
     const initialize = async () => {
       console.log(`Starting WalletConnect...`);
-      const _client = await WalletConnect.init(options);
-      console.log("WalletConnect initialized!");
-      setClient(_client);
+      try {
+        const _client = await WalletConnect.init(options);
+        console.log("WalletConnect initialized!");
+        setClient(_client);
+      } catch (e) {
+        console.error(e);
+      }
     };
     initialize();
   }, [client]);
