@@ -22,11 +22,17 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "postinstall": "rn-nodeify --hack --install crypto"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.13.4",
+    "@walletconnect/client": "^2.0.0-alpha.23",
+    "node-libs-react-native": "^1.2.1",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-crypto": "^2.2.0",
+    "react-native-randombytes": "^3.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -40,6 +46,7 @@
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-test-renderer": "16.13.1",
+    "rn-nodeify": "^10.2.0",
     "typescript": "^3.8.3"
   },
   "jest": {
@@ -52,5 +59,11 @@
       "json",
       "node"
     ]
+  },
+  "react-native": {
+    "crypto": "react-native-crypto"
+  },
+  "browser": {
+    "crypto": "react-native-crypto"
   }
 }

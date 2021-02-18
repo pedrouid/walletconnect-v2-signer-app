@@ -1,11 +1,33 @@
-import React from "react";
+import crypto from "crypto";
+import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import WalletConnect from "@walletconnect/client";
 import { SafeAreaView, ScrollView, View, Text, StatusBar } from "react-native";
 
 import { appStyles } from "./styles";
 
 declare const global: { HermesInternal: null | {} };
 
+const options = {
+  relayProvider: "wss://staging.walletconnect.org",
+  storageOptions: {
+    asyncStorage: AsyncStorage as any,
+  },
+};
+
 const App = () => {
+  const [client, setClient] = useState(undefined as any);
+
+  useEffect(() => {
+    const initialize = async () => {
+      console.log(`Starting WalletConnect...`);
+      const _client = await WalletConnect.init(options);
+      console.log("WalletConnect initialized!");
+      setClient(_client);
+    };
+    initialize();
+  }, [client]);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -25,6 +47,9 @@ const App = () => {
                 Welcome to{" "}
                 <Text style={appStyles.highlight}>WalletConnect</Text> Signer
                 app.
+              </Text>
+              <Text style={appStyles.sectionDescription}>
+                {crypto.randomBytes(32).toString("hex")}
               </Text>
             </View>
           </View>
