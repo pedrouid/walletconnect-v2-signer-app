@@ -8,21 +8,18 @@ import { appStyles } from "./styles";
 
 declare const global: { HermesInternal: null | {} };
 
-const options = {
-  relayProvider: "wss://staging.walletconnect.org",
-  storageOptions: {
-    asyncStorage: AsyncStorage as any,
-  },
-};
-
 const App = () => {
   const [client, setClient] = useState(undefined as any);
-
   useEffect(() => {
     const initialize = async () => {
       console.log(`Starting WalletConnect...`);
       try {
-        const _client = await WalletConnect.init(options);
+        const _client = await WalletConnect.init({
+          relayProvider: "wss://staging.walletconnect.org",
+          storageOptions: {
+            asyncStorage: AsyncStorage as any,
+          },
+        });
         console.log("WalletConnect initialized!");
         setClient(_client);
       } catch (e) {
@@ -30,7 +27,7 @@ const App = () => {
       }
     };
     initialize();
-  }, [client]);
+  }, []);
 
   return (
     <>

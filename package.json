@@ -20,14 +20,15 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start -- --reset-cache",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "clear": "watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf $TMPDIR/metro-* && rm -rf $TMPDIR/haste-map-*",
     "postinstall": "rn-nodeify --hack --install crypto"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.4",
-    "@walletconnect/client": "^2.0.0-alpha.23",
+    "@walletconnect/client": "^2.0.0-alpha.25",
     "node-libs-react-native": "^1.2.1",
     "react": "16.13.1",
     "react-native": "0.63.4",
