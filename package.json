@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.4",
-    "@walletconnect/client": "^2.0.0-alpha.25",
+    "@walletconnect/client": "^2.0.0-alpha.26",
+    "caip-wallet": "^1.6.4",
     "node-libs-react-native": "^1.2.1",
     "react": "16.13.1",
     "react-native": "0.63.4",

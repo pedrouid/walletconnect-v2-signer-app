@@ -1,33 +1,81 @@
-import crypto from "crypto";
 import React, { useState, useEffect } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import WalletConnect from "@walletconnect/client";
 import { SafeAreaView, ScrollView, View, Text, StatusBar } from "react-native";
 
+import Wallet from "caip-wallet";
+import Client from "@walletconnect/client";
+
+import crypto from "crypto";
+import { utils } from "ethers";
+import KeyValueStorage from "keyvaluestorage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import { appStyles } from "./styles";
+import { DEFAULT_TEST_CHAINS, DEFAULT_RELAY_PROVIDER } from "./constants";
 
 declare const global: { HermesInternal: null | {} };
 
+const MNEMONIC_KEY = "MNEMONIC";
+
 const App = () => {
-  const [client, setClient] = useState(undefined as any);
+  const [chains] = useState(DEFAULT_TEST_CHAINS);
+  const [mnemonic, setMnemonic] = useState<string | undefined>(undefined);
+  const [wallet, setWallet] = useState<Wallet | undefined>(undefined);
+  const [client, setClient] = useState<Client | undefined>(undefined);
+
   useEffect(() => {
-    const initialize = async () => {
-      console.log(`Starting WalletConnect...`);
+    const initMnemonic = async () => {
+      let _mnemonic = await AsyncStorage.getItem(MNEMONIC_KEY);
+      if (!_mnemonic) {
+        _mnemonic = utils.entropyToMnemonic(crypto.randomBytes(32));
+        await AsyncStorage.setItem(MNEMONIC_KEY, _mnemonic);
+      }
+      setMnemonic(_mnemonic);
+    };
+    initMnemonic();
+  }, []);
+
+  useEffect(() => {
+    const initWallet = async () => {
+      console.log(`Starting Wallet...`);
       try {
-        const _client = await WalletConnect.init({
-          relayProvider: "wss://staging.walletconnect.org",
+        const storage = new KeyValueStorage({
+          asyncStorage: AsyncStorage as any,
+        });
+        console.log(mnemonic);
+        const _wallet = await Wallet.init({
+          chains,
+          storage,
+          mnemonic,
+        });
+        console.log("Wallet started!");
+        setWallet(_wallet);
+      } catch (e) {
+        console.log("Failed to start Wallet!");
+        console.error(e);
+      }
+    };
+    initWallet();
+  }, [chains, mnemonic]);
+
+  useEffect(() => {
+    const initClient = async () => {
+      console.log(`Starting Client...`);
+      try {
+        const _client = await Client.init({
+          relayProvider: DEFAULT_RELAY_PROVIDER,
           storageOptions: {
             asyncStorage: AsyncStorage as any,
           },
         });
-        console.log("WalletConnect initialized!");
+        console.log("Client started!");
         setClient(_client);
       } catch (e) {
+        console.log("Failed to start Client!");
         console.error(e);
       }
     };
-    initialize();
-  }, []);
+    initClient();
+  }, [wallet]);
 
   return (
     <>
@@ -50,7 +98,7 @@ const App = () => {
                 app.
               </Text>
               <Text style={appStyles.sectionDescription}>
-                {crypto.randomBytes(32).toString("hex")}
+                {client ? "Ready" : "Loading..."}
               </Text>
             </View>
           </View>
