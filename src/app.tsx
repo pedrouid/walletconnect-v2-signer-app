@@ -41,7 +41,6 @@ const App = () => {
         const storage = new KeyValueStorage({
           asyncStorage: AsyncStorage as any,
         });
-        console.log(mnemonic);
         const _wallet = await Wallet.init({
           chains,
           storage,
