@@ -1,5 +1,5 @@
-import App from "./app";
+import Home from "./views/home";
 
-export * from "./app";
+export * from "./views/home";
 
-export default App;
+export default Home;

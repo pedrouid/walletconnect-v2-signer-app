@@ -29,11 +29,14 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.4",
     "@walletconnect/client": "^2.0.0-alpha.26",
-    "caip-wallet": "^1.6.4",
+    "caip-wallet": "^1.6.5",
     "node-libs-react-native": "^1.2.1",
     "react": "16.13.1",
     "react-native": "0.63.4",
+    "react-native-camera": "^3.43.0",
     "react-native-crypto": "^2.2.0",
+    "react-native-permissions": "^3.0.1",
+    "react-native-qrcode-scanner": "^1.5.3",
     "react-native-randombytes": "^3.6.0"
   },
   "devDependencies": {

@@ -53,5 +53,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>WalletConnect Signer needs camera access to scan QR Codes</string>
 </dict>
 </plist>
