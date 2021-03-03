@@ -27,7 +27,7 @@ import Scanner from "../components/Scanner";
 
 declare const global: { HermesInternal: null | {} };
 
-const Home = () => {
+const HomeScreen = () => {
   const [scanner, setScanner] = useState(false);
   const [loading, setLoading] = useState(true);
   const [accounts, setAccounts] = useState<string[]>([]);
@@ -268,4 +268,4 @@ export const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default HomeScreen;
