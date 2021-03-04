@@ -12,6 +12,9 @@ import {
   DEFAULT_METHODS,
   DEFAULT_CHAIN,
 } from "./constants";
+import { navigate } from "./navigation";
+
+export type Dispatch<T = any> = React.Dispatch<React.SetStateAction<T>>;
 
 export interface IContext {
   loading: boolean;
@@ -19,9 +22,9 @@ export interface IContext {
   wallet: Wallet | undefined;
   client: Client | undefined;
   proposal: SessionTypes.Proposal | undefined;
-  setProposal: React.Dispatch<
-    React.SetStateAction<SessionTypes.Proposal | undefined>
-  >;
+  setProposal: Dispatch<SessionTypes.Proposal | undefined>;
+  request: SessionTypes.PayloadEvent | undefined;
+  setRequest: Dispatch<SessionTypes.PayloadEvent | undefined>;
 }
 
 export const INITIAL_CONTEXT: IContext = {
@@ -31,6 +34,8 @@ export const INITIAL_CONTEXT: IContext = {
   client: undefined,
   proposal: undefined,
   setProposal: () => {},
+  request: undefined,
+  setRequest: () => {},
 };
 
 export const Context = createContext<IContext>(INITIAL_CONTEXT);
@@ -41,6 +46,9 @@ export const Provider = (props: any) => {
   const [wallet, setWallet] = useState<Wallet | undefined>(undefined);
   const [client, setClient] = useState<Client | undefined>(undefined);
   const [proposal, setProposal] = useState<SessionTypes.Proposal | undefined>(
+    undefined,
+  );
+  const [request, setRequest] = useState<SessionTypes.PayloadEvent | undefined>(
     undefined,
   );
 
@@ -123,6 +131,7 @@ export const Provider = (props: any) => {
               return client.reject({ proposal: _proposal });
             }
             setProposal(_proposal);
+            navigate("Modal");
           },
         );
       } catch (e) {
@@ -134,13 +143,15 @@ export const Provider = (props: any) => {
   }, [client]);
 
   // Make the context object:
-  const context = {
+  const context: IContext = {
     loading,
     accounts,
     wallet,
     client,
     proposal,
     setProposal,
+    request,
+    setRequest,
   };
 
   // pass the value in provider and return

@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { View, StyleSheet } from "react-native";
+import { SessionTypes } from "@walletconnect/types";
 
-import { Context } from "../context";
+interface ProposalProps {
+  proposal: SessionTypes.Proposal;
+  onApprove: () => Promise<void>;
+  onReject: () => Promise<void>;
+}
 
-const Proposal = () => {
-  const { proposal } = useContext(Context);
-
+const Proposal = (props: ProposalProps) => {
+  const { proposal } = props;
   return <View style={styles.container}>{proposal}</View>;
 };
 
