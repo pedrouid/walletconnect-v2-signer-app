@@ -1,22 +1,40 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import HomeScreen from "./screens/Home";
+import { Provider } from "./context";
 
-const Stack = createStackNavigator();
+import Home from "./screens/Home";
+import Scanner from "./screens/Scanner";
+
+const Tab = createBottomTabNavigator();
+
+const Theme = {
+  dark: false,
+  colors: {
+    primary: "#000",
+    background: "#fff",
+    card: "#fff",
+    text: "#000",
+    border: "#000",
+    notification: "#5a70b5",
+  },
+};
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: "Accounts" }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider>
+      <NavigationContainer theme={Theme}>
+        <Tab.Navigator>
+          <Tab.Screen
+            name="Home"
+            component={Home}
+            options={{ title: "Accounts" }}
+          />
+          <Tab.Screen name="Scanner" component={Scanner} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
