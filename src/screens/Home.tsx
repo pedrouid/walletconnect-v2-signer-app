@@ -3,7 +3,6 @@ import { SafeAreaView, View, Text, StatusBar, StyleSheet } from "react-native";
 
 import { getChainConfig } from "caip-wallet";
 
-import { DEFAULT_CHAIN } from "../constants";
 import { Context } from "../context";
 
 const Home = () => {
@@ -21,15 +20,22 @@ const Home = () => {
               </View>
             ) : (
               <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>
-                  {getChainConfig(DEFAULT_CHAIN).name}
-                </Text>
-                <Text
-                  adjustsFontSizeToFit
-                  numberOfLines={1}
-                  style={styles.sectionDescription}>
-                  {accounts[0].split("@")[0]}
-                </Text>
+                {accounts.map((account) => {
+                  const [address, chainId] = account.split("@");
+                  return (
+                    <React.Fragment key={account}>
+                      <Text style={styles.sectionTitle}>
+                        {getChainConfig(chainId).name}
+                      </Text>
+                      <Text
+                        adjustsFontSizeToFit
+                        numberOfLines={1}
+                        style={styles.sectionDescription}>
+                        {address}
+                      </Text>
+                    </React.Fragment>
+                  );
+                })}
               </View>
             )}
           </View>

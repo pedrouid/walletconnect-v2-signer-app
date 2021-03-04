@@ -10,7 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   DEFAULT_RELAY_PROVIDER,
   DEFAULT_METHODS,
-  DEFAULT_CHAIN,
+  DEFAULT_TEST_CHAINS,
 } from "./constants";
 import { navigate } from "./navigation";
 
@@ -18,6 +18,7 @@ export type Dispatch<T = any> = React.Dispatch<React.SetStateAction<T>>;
 
 export interface IContext {
   loading: boolean;
+  chains: string[];
   accounts: string[];
   wallet: Wallet | undefined;
   client: Client | undefined;
@@ -29,6 +30,7 @@ export interface IContext {
 
 export const INITIAL_CONTEXT: IContext = {
   loading: false,
+  chains: [],
   accounts: [],
   wallet: undefined,
   client: undefined,
@@ -42,6 +44,7 @@ export const Context = createContext<IContext>(INITIAL_CONTEXT);
 
 export const Provider = (props: any) => {
   const [loading, setLoading] = useState<boolean>(true);
+  const [chains] = useState<string[]>(DEFAULT_TEST_CHAINS);
   const [accounts, setAccounts] = useState<string[]>([]);
   const [wallet, setWallet] = useState<Wallet | undefined>(undefined);
   const [client, setClient] = useState<Client | undefined>(undefined);
@@ -60,10 +63,10 @@ export const Provider = (props: any) => {
           asyncStorage: AsyncStorage as any,
         });
         const _wallet = await Wallet.init({
-          chains: [DEFAULT_CHAIN],
+          chains,
           storage,
         });
-        const _accounts = await _wallet.getAccounts(DEFAULT_CHAIN);
+        const _accounts = await _wallet.getAccounts();
         setAccounts(_accounts);
         console.log("Wallet started!");
         setWallet(_wallet);
@@ -73,7 +76,7 @@ export const Provider = (props: any) => {
       }
     };
     initWallet();
-  }, []);
+  }, [chains]);
 
   useEffect(() => {
     const initClient = async () => {
@@ -112,7 +115,7 @@ export const Provider = (props: any) => {
             console.log("EVENT", "session_proposal");
             const unsupportedChains = [];
             _proposal.permissions.blockchain.chains.forEach((chainId) => {
-              if (chainId === DEFAULT_CHAIN) {
+              if (chains.includes(chainId)) {
                 return;
               }
               unsupportedChains.push(chainId);
@@ -140,11 +143,12 @@ export const Provider = (props: any) => {
       }
     };
     subscribeClient();
-  }, [client]);
+  }, [client, chains]);
 
   // Make the context object:
   const context: IContext = {
     loading,
+    chains,
     accounts,
     wallet,
     client,
