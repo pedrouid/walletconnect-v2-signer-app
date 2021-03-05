@@ -49,7 +49,11 @@ function App() {
             component={Tabs}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="Modal" component={Modal} />
+          <Stack.Screen
+            name="Modal"
+            component={Modal}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

@@ -7,12 +7,13 @@ import { SessionTypes } from "@walletconnect/types";
 import KeyValueStorage from "keyvaluestorage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import * as navigation from "./navigation";
 import {
   DEFAULT_RELAY_PROVIDER,
   DEFAULT_METHODS,
   DEFAULT_TEST_CHAINS,
+  DEFAULT_APP_METADATA,
 } from "./constants";
-import { navigate } from "./navigation";
 
 export type Dispatch<T = any> = React.Dispatch<React.SetStateAction<T>>;
 
@@ -26,6 +27,8 @@ export interface IContext {
   setProposal: Dispatch<SessionTypes.Proposal | undefined>;
   request: SessionTypes.PayloadEvent | undefined;
   setRequest: Dispatch<SessionTypes.PayloadEvent | undefined>;
+  onApprove: () => Promise<void>;
+  onReject: () => Promise<void>;
 }
 
 export const INITIAL_CONTEXT: IContext = {
@@ -38,6 +41,8 @@ export const INITIAL_CONTEXT: IContext = {
   setProposal: () => {},
   request: undefined,
   setRequest: () => {},
+  onApprove: async () => {},
+  onReject: async () => {},
 };
 
 export const Context = createContext<IContext>(INITIAL_CONTEXT);
@@ -134,7 +139,7 @@ export const Provider = (props: any) => {
               return client.reject({ proposal: _proposal });
             }
             setProposal(_proposal);
-            navigate("Modal");
+            navigation.navigate("Modal");
           },
         );
       } catch (e) {
@@ -144,6 +149,44 @@ export const Provider = (props: any) => {
     };
     subscribeClient();
   }, [client, chains]);
+
+  async function onApprove() {
+    if (typeof proposal !== "undefined") {
+      try {
+        if (typeof client === "undefined") {
+          return;
+        }
+        const response = {
+          state: { accounts },
+          metadata: DEFAULT_APP_METADATA,
+        };
+        await client.approve({ proposal, response });
+      } catch (e) {
+        console.error(e);
+      }
+      navigation.goBack();
+      setProposal(undefined);
+    } else if (typeof request !== "undefined") {
+      // TODO: implement approve request
+    }
+  }
+
+  async function onReject() {
+    if (typeof proposal !== "undefined") {
+      try {
+        if (typeof client === "undefined") {
+          return;
+        }
+        await client.reject({ proposal });
+      } catch (e) {
+        console.error(e);
+      }
+      navigation.goBack();
+      setProposal(undefined);
+    } else if (typeof request !== "undefined") {
+      // TODO: implement approve request
+    }
+  }
 
   // Make the context object:
   const context: IContext = {
@@ -156,6 +199,8 @@ export const Provider = (props: any) => {
     setProposal,
     request,
     setRequest,
+    onApprove,
+    onReject,
   };
 
   // pass the value in provider and return

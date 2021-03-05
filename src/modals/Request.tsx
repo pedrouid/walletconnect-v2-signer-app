@@ -1,6 +1,7 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { SessionTypes } from "@walletconnect/types";
+import { JsonRpcRequest } from "@json-rpc-tools/utils";
 
 interface RequestProps {
   request: SessionTypes.PayloadEvent;
@@ -9,8 +10,16 @@ interface RequestProps {
 }
 
 const Request = (props: RequestProps) => {
-  const { request } = props;
-  return <View style={styles.container}>{request}</View>;
+  const request = props.request.payload as JsonRpcRequest;
+  return (
+    <View style={styles.container}>
+      <Text>{"JSON-RPC Request"}</Text>
+      <Text>{"Method"}</Text>
+      <Text>{request.method}</Text>
+      <Text>{"Params"}</Text>
+      <Text>{JSON.stringify(request.params)}</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({

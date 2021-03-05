@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { SafeAreaView, View, Text, StatusBar, StyleSheet } from "react-native";
 
-import { getChainConfig } from "caip-wallet";
-
 import { Context } from "../context";
+
+import Blockchain from "../components/Blockchain";
 
 const Home = () => {
   const { loading, accounts } = useContext(Context);
@@ -23,17 +23,11 @@ const Home = () => {
                 {accounts.map((account) => {
                   const [address, chainId] = account.split("@");
                   return (
-                    <React.Fragment key={account}>
-                      <Text style={styles.sectionTitle}>
-                        {getChainConfig(chainId).name}
-                      </Text>
-                      <Text
-                        adjustsFontSizeToFit
-                        numberOfLines={1}
-                        style={styles.sectionDescription}>
-                        {address}
-                      </Text>
-                    </React.Fragment>
+                    <Blockchain
+                      key={`wallet:accounts:${account}`}
+                      chainId={chainId}
+                      address={address}
+                    />
                   );
                 })}
               </View>
@@ -82,18 +76,6 @@ export const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: "right",
-  },
-  button: {
-    padding: 12,
-    marginTop: 20,
-    borderRadius: 8,
-    backgroundColor: "#5a70b5",
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "600",
-    textAlign: "center",
   },
 });
 

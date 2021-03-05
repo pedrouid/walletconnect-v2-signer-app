@@ -1,26 +1,23 @@
 import React, { useContext } from "react";
-import { View, StyleSheet } from "react-native";
+
+import Proposal from "../modals/Proposal";
+import Request from "../modals/Request";
 
 import { Context } from "../context";
 
 const Modal = () => {
-  const { proposal, request } = useContext(Context);
+  const { proposal, request, onApprove, onReject } = useContext(Context);
   if (typeof proposal !== "undefined") {
-    return <View style={styles.container}>{proposal}</View>;
+    return (
+      <Proposal proposal={proposal} onApprove={onApprove} onReject={onReject} />
+    );
   } else if (typeof request !== "undefined") {
-    return <View style={styles.container}>{request}</View>;
+    return (
+      <Request request={request} onApprove={onApprove} onReject={onReject} />
+    );
   } else {
-    return <View style={styles.container}>{"No content"}</View>;
+    return null;
   }
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    height: 100,
-    justifyContent: "center",
-  },
-});
 
 export default Modal;
