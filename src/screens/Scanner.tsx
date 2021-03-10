@@ -40,8 +40,8 @@ export const styles = StyleSheet.create({
   centerText: {
     flex: 1,
     fontSize: 18,
-    padding: 32,
-    color: "#fff",
+    paddingTop: 100,
+    color: "#000",
   },
   textBold: {
     fontWeight: "500",
