@@ -5,6 +5,7 @@ import Client, { CLIENT_EVENTS } from "@walletconnect/client";
 import { SessionTypes } from "@walletconnect/types";
 
 import KeyValueStorage from "keyvaluestorage";
+import { isJsonRpcRequest, formatJsonRpcError } from "@json-rpc-tools/utils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import * as navigation from "./navigation";
@@ -111,13 +112,13 @@ export const Provider = (props: any) => {
         if (typeof client === "undefined") {
           return;
         }
+
         client.on(
           CLIENT_EVENTS.session.proposal,
           (_proposal: SessionTypes.Proposal) => {
             if (typeof client === "undefined") {
               return;
             }
-            console.log("EVENT", "session_proposal");
             const unsupportedChains = [];
             _proposal.permissions.blockchain.chains.forEach((chainId) => {
               if (chains.includes(chainId)) {
@@ -142,13 +143,53 @@ export const Provider = (props: any) => {
             navigation.navigate("Modal");
           },
         );
+
+        client.on(
+          CLIENT_EVENTS.session.payload,
+          async (payloadEvent: SessionTypes.PayloadEvent) => {
+            if (isJsonRpcRequest(payloadEvent.payload)) {
+              if (typeof wallet === "undefined") {
+                throw new Error("Wallet is not initialized");
+              }
+              const chainId = payloadEvent.chainId || chains[0];
+              try {
+                // TODO: needs improvement
+                const requiresApproval = wallet.auth[chainId].assert(
+                  payloadEvent.payload,
+                );
+                if (requiresApproval) {
+                  setRequest(payloadEvent);
+                  navigation.navigate("Modal");
+                } else {
+                  const response = await wallet.resolve(
+                    payloadEvent.payload,
+                    chainId,
+                  );
+                  await client.respond({
+                    topic: payloadEvent.topic,
+                    response,
+                  });
+                }
+              } catch (e) {
+                const response = formatJsonRpcError(
+                  payloadEvent.payload.id,
+                  e.message,
+                );
+                await client.respond({
+                  topic: payloadEvent.topic,
+                  response,
+                });
+              }
+            }
+          },
+        );
       } catch (e) {
         console.log("Failed to subscribe Client!");
         console.error(e);
       }
     };
     subscribeClient();
-  }, [client, chains]);
+  }, [client, wallet, chains]);
 
   async function onApprove() {
     if (typeof proposal !== "undefined") {
@@ -156,19 +197,39 @@ export const Provider = (props: any) => {
         if (typeof client === "undefined") {
           return;
         }
+        const _accounts = accounts.filter((account) => {
+          const chainId = account.split("@")[1];
+          return proposal.permissions.blockchain.chains.includes(chainId);
+        });
         const response = {
-          state: { accounts },
+          state: { accounts: _accounts },
           metadata: DEFAULT_APP_METADATA,
         };
         await client.approve({ proposal, response });
       } catch (e) {
         console.error(e);
       }
-      navigation.goBack();
       setProposal(undefined);
     } else if (typeof request !== "undefined") {
-      // TODO: implement approve request
+      try {
+        if (typeof client === "undefined") {
+          return;
+        }
+        if (typeof wallet === "undefined") {
+          return;
+        }
+        const chainId = request.chainId || chains[0];
+        const response = await wallet.approve(request.payload as any, chainId);
+        await client.respond({
+          topic: request.topic,
+          response,
+        });
+      } catch (e) {
+        console.error(e);
+      }
+      setRequest(undefined);
     }
+    navigation.goBack();
   }
 
   async function onReject() {
@@ -181,11 +242,26 @@ export const Provider = (props: any) => {
       } catch (e) {
         console.error(e);
       }
-      navigation.goBack();
       setProposal(undefined);
     } else if (typeof request !== "undefined") {
-      // TODO: implement approve request
+      try {
+        if (typeof client === "undefined") {
+          return;
+        }
+        const response = formatJsonRpcError(
+          request.payload.id,
+          "User Rejected Request",
+        );
+        await client.respond({
+          topic: request.topic,
+          response,
+        });
+      } catch (e) {
+        console.error(e);
+      }
+      setRequest(undefined);
     }
+    navigation.goBack();
   }
 
   // Make the context object:

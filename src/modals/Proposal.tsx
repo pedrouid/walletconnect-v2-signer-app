@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { SessionTypes } from "@walletconnect/types";
 
 import Button from "../components/Button";
 import Blockchain from "../components/Blockchain";
+import Metadata from "../components/Metadata";
 
 interface ProposalProps {
   proposal: SessionTypes.Proposal;
@@ -18,15 +19,7 @@ const Proposal = (props: ProposalProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{`Session Proposal`}</Text>
-      <View style={styles.metadata}>
-        <Image
-          style={styles.metadataLogo}
-          source={{ uri: metadata.icons[0] }}
-        />
-        <Text style={styles.metadataName}>{metadata.name}</Text>
-        <Text style={styles.metadataDesc}>{metadata.description}</Text>
-        <Text style={styles.metadataUrl}>{metadata.url}</Text>
-      </View>
+      <Metadata metadata={metadata} />
       <View style={styles.permissions}>
         <Text style={styles.permissionsTitle}>{`Chains`}</Text>
         <View>
@@ -68,20 +61,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     marginBottom: 30,
   },
-  metadata: {
-    alignItems: "center",
-    padding: 10,
-    marginTop: 10,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderRadius: 8,
-    borderColor: "grey",
-  },
-  metadataLogo: { width: 50, height: 50 },
-  metadataName: { fontSize: 20, fontWeight: "700", marginBottom: 6 },
-  metadataDesc: { fontSize: 18, marginBottom: 6 },
-  metadataUrl: { fontSize: 14, marginBottom: 6 },
   permissions: {
     padding: 10,
     marginTop: 10,
