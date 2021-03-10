@@ -17,28 +17,41 @@ const Proposal = (props: ProposalProps) => {
   const { metadata } = proposal.proposer;
   return (
     <View style={styles.container}>
-      <Text>{`Session Proposal`}</Text>
-      <Image style={styles.logo} source={{ uri: metadata.icons[0] }} />
-      <Text>{metadata.name}</Text>
-      <Text>{metadata.description}</Text>
-      <Text>{metadata.url}</Text>
-      <Text>{`Chains`}</Text>
-      <View>
-        {blockchain.chains.map((chainId) => (
-          <Blockchain
-            key={`proposal:blockchain:${chainId}`}
-            chainId={chainId}
-          />
-        ))}
+      <Text style={styles.title}>{`Session Proposal`}</Text>
+      <View style={styles.metadata}>
+        <Image
+          style={styles.metadataLogo}
+          source={{ uri: metadata.icons[0] }}
+        />
+        <Text style={styles.metadataName}>{metadata.name}</Text>
+        <Text style={styles.metadataDesc}>{metadata.description}</Text>
+        <Text style={styles.metadataUrl}>{metadata.url}</Text>
       </View>
-      <Text>{`Methods`}</Text>
-      <View>
-        {jsonrpc.methods.map((method) => (
-          <Text key={`proposal:jsonrpc:${method}`}>{method}</Text>
-        ))}
+      <View style={styles.permissions}>
+        <Text style={styles.permissionsTitle}>{`Chains`}</Text>
+        <View>
+          {blockchain.chains.map((chainId) => (
+            <Blockchain
+              key={`proposal:blockchain:${chainId}`}
+              chainId={chainId}
+            />
+          ))}
+        </View>
+        <Text style={styles.permissionsTitle}>{`Methods`}</Text>
+        <View>
+          {jsonrpc.methods.map((method) => (
+            <Text
+              key={`proposal:jsonrpc:${method}`}
+              style={styles.permissionsText}>
+              {method}
+            </Text>
+          ))}
+        </View>
       </View>
-      <Button text="Approve" onPress={() => onApprove()} />
-      <Button text="Reject" onPress={() => onReject()} />
+      <View style={styles.actions}>
+        <Button text="Reject" color="red" onPress={() => onReject()} />
+        <Button text="Approve" color="green" onPress={() => onApprove()} />
+      </View>
     </View>
   );
 };
@@ -46,13 +59,39 @@ const Proposal = (props: ProposalProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     height: 100,
-    justifyContent: "center",
+    marginTop: 100,
+    margin: 20,
   },
-  logo: {
-    width: 50,
-    height: 50,
+  title: {
+    fontSize: 30,
+    fontWeight: "700",
+    marginBottom: 30,
+  },
+  metadata: {
+    alignItems: "center",
+    padding: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 8,
+    borderColor: "grey",
+  },
+  metadataLogo: { width: 50, height: 50 },
+  metadataName: { fontSize: 20, fontWeight: "700", marginBottom: 6 },
+  metadataDesc: { fontSize: 18, marginBottom: 6 },
+  metadataUrl: { fontSize: 14, marginBottom: 6 },
+  permissions: {
+    padding: 10,
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  permissionsTitle: { fontSize: 20, fontWeight: "700", marginBottom: 10 },
+  permissionsText: { fontSize: 16, marginBottom: 10 },
+  actions: {
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });
 

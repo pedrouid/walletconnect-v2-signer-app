@@ -7,6 +7,7 @@ import { ChainMetadata, getChainMetadata } from "../helpers";
 interface BlockchainProps {
   chainId: string;
   address?: string;
+  children?: any;
 }
 
 const Blockchain = (props: BlockchainProps) => {
@@ -28,17 +29,14 @@ const Blockchain = (props: BlockchainProps) => {
           {address}
         </Text>
       )}
+      {props.children}
     </View>
   ) : null;
 };
 
 export const styles = StyleSheet.create({
   chain: {
-    paddingBottom: 10,
-    marginBottom: 20,
-    borderBottomWidth: 1,
-    borderStyle: "solid",
-    borderColor: "black",
+    marginBottom: 10,
   },
   chainMeta: {
     flexDirection: "row",

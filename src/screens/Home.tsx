@@ -23,11 +23,11 @@ const Home = () => {
                 {accounts.map((account) => {
                   const [address, chainId] = account.split("@");
                   return (
-                    <Blockchain
-                      key={`wallet:accounts:${account}`}
-                      chainId={chainId}
-                      address={address}
-                    />
+                    <React.Fragment key={`wallet:accounts:${account}`}>
+                      <Blockchain chainId={chainId} address={address}>
+                        <View style={styles.separator} />
+                      </Blockchain>
+                    </React.Fragment>
                   );
                 })}
               </View>
@@ -76,6 +76,12 @@ export const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: "right",
+  },
+  separator: {
+    borderWidth: 1,
+    borderBottomColor: "grey",
+    borderStyle: "solid",
+    marginTop: 10,
   },
 });
 
