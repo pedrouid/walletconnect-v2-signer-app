@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { SessionTypes } from "@walletconnect/types";
-import { JsonRpcRequest } from "@json-rpc-tools/utils";
 
 import Button from "../components/Button";
 
@@ -10,7 +9,7 @@ import Metadata from "../components/Metadata";
 import Blockchain from "../components/Blockchain";
 
 interface RequestProps {
-  request: SessionTypes.PayloadEvent;
+  request: SessionTypes.RequestEvent;
   onApprove: () => Promise<void>;
   onReject: () => Promise<void>;
 }
@@ -23,8 +22,7 @@ const Request = (props: RequestProps) => {
   const [metadata, setMetadata] = useState<SessionTypes.Metadata | undefined>(
     undefined,
   );
-  const { topic, chainId } = props.request;
-  const request = props.request.payload as JsonRpcRequest;
+  const { topic, request, chainId } = props.request;
 
   useEffect(() => {
     const getMetadata = async () => {

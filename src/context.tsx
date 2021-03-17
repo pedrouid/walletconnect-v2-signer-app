@@ -5,7 +5,7 @@ import Client, { CLIENT_EVENTS } from "@walletconnect/client";
 import { SessionTypes } from "@walletconnect/types";
 
 import KeyValueStorage from "keyvaluestorage";
-import { isJsonRpcRequest, formatJsonRpcError } from "@json-rpc-tools/utils";
+import { formatJsonRpcError } from "@json-rpc-tools/utils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import * as navigation from "./navigation";
@@ -26,8 +26,8 @@ export interface IContext {
   client: Client | undefined;
   proposal: SessionTypes.Proposal | undefined;
   setProposal: Dispatch<SessionTypes.Proposal | undefined>;
-  request: SessionTypes.PayloadEvent | undefined;
-  setRequest: Dispatch<SessionTypes.PayloadEvent | undefined>;
+  request: SessionTypes.RequestEvent | undefined;
+  setRequest: Dispatch<SessionTypes.RequestEvent | undefined>;
   onApprove: () => Promise<void>;
   onReject: () => Promise<void>;
 }
@@ -57,7 +57,7 @@ export const Provider = (props: any) => {
   const [proposal, setProposal] = useState<SessionTypes.Proposal | undefined>(
     undefined,
   );
-  const [request, setRequest] = useState<SessionTypes.PayloadEvent | undefined>(
+  const [request, setRequest] = useState<SessionTypes.RequestEvent | undefined>(
     undefined,
   );
 
@@ -145,41 +145,39 @@ export const Provider = (props: any) => {
         );
 
         client.on(
-          CLIENT_EVENTS.session.payload,
-          async (payloadEvent: SessionTypes.PayloadEvent) => {
-            if (isJsonRpcRequest(payloadEvent.payload)) {
-              if (typeof wallet === "undefined") {
-                throw new Error("Wallet is not initialized");
-              }
-              const chainId = payloadEvent.chainId || chains[0];
-              try {
-                // TODO: needs improvement
-                const requiresApproval = wallet.auth[chainId].assert(
-                  payloadEvent.payload,
-                );
-                if (requiresApproval) {
-                  setRequest(payloadEvent);
-                  navigation.navigate("Modal");
-                } else {
-                  const response = await wallet.resolve(
-                    payloadEvent.payload,
-                    chainId,
-                  );
-                  await client.respond({
-                    topic: payloadEvent.topic,
-                    response,
-                  });
-                }
-              } catch (e) {
-                const response = formatJsonRpcError(
-                  payloadEvent.payload.id,
-                  e.message,
+          CLIENT_EVENTS.session.request,
+          async (requestEvent: SessionTypes.RequestEvent) => {
+            if (typeof wallet === "undefined") {
+              throw new Error("Wallet is not initialized");
+            }
+            const chainId = requestEvent.chainId || chains[0];
+            try {
+              // TODO: needs improvement
+              const requiresApproval = wallet.auth[chainId].assert(
+                requestEvent.request,
+              );
+              if (requiresApproval) {
+                setRequest(requestEvent);
+                navigation.navigate("Modal");
+              } else {
+                const response = await wallet.resolve(
+                  requestEvent.request,
+                  chainId,
                 );
                 await client.respond({
-                  topic: payloadEvent.topic,
+                  topic: requestEvent.topic,
                   response,
                 });
               }
+            } catch (e) {
+              const response = formatJsonRpcError(
+                requestEvent.request.id,
+                e.message,
+              );
+              await client.respond({
+                topic: requestEvent.topic,
+                response,
+              });
             }
           },
         );
@@ -219,7 +217,7 @@ export const Provider = (props: any) => {
           return;
         }
         const chainId = request.chainId || chains[0];
-        const response = await wallet.approve(request.payload as any, chainId);
+        const response = await wallet.approve(request.request, chainId);
         await client.respond({
           topic: request.topic,
           response,
@@ -249,7 +247,7 @@ export const Provider = (props: any) => {
           return;
         }
         const response = formatJsonRpcError(
-          request.payload.id,
+          request.request.id,
           "User Rejected Request",
         );
         await client.respond({
