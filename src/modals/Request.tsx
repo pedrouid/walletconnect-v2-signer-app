@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
-import { SessionTypes } from "@walletconnect/types";
+import { SessionTypes, AppMetadata } from "@walletconnect/types";
 
 import Button from "../components/Button";
 
@@ -19,9 +19,7 @@ const Request = (props: RequestProps) => {
 
   const { onApprove, onReject } = props;
   const [loading, setLoading] = useState(false);
-  const [metadata, setMetadata] = useState<SessionTypes.Metadata | undefined>(
-    undefined,
-  );
+  const [metadata, setMetadata] = useState<AppMetadata | undefined>(undefined);
   const { topic, request, chainId } = props.request;
 
   useEffect(() => {

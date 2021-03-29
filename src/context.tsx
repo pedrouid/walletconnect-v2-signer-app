@@ -89,7 +89,9 @@ export const Provider = (props: any) => {
       console.log(`Starting Client...`);
       try {
         const _client = await Client.init({
+          controller: true,
           relayProvider: DEFAULT_RELAY_PROVIDER,
+          metadata: DEFAULT_APP_METADATA,
           storageOptions: {
             asyncStorage: AsyncStorage as any,
           },
@@ -201,7 +203,6 @@ export const Provider = (props: any) => {
         });
         const response = {
           state: { accounts: _accounts },
-          metadata: DEFAULT_APP_METADATA,
         };
         await client.approve({ proposal, response });
       } catch (e) {

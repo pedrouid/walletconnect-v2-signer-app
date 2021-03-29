@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import { SessionTypes } from "@walletconnect/types";
+import { AppMetadata } from "@walletconnect/types";
 
 interface MetadataProps {
-  metadata: SessionTypes.Metadata;
+  metadata: AppMetadata;
 }
 
 const Metadata = (props: MetadataProps) => {
