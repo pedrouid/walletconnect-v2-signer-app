@@ -1,7 +1,7 @@
-import { ChainConfig } from "caip-wallet";
 import { ImageSourcePropType } from "react-native";
 
-export interface ChainMetadata extends ChainConfig {
+export interface ChainMetadata {
+  name: string;
   logo: ImageSourcePropType;
   rgb: string;
 }

@@ -1,11 +1,12 @@
 import React, { createContext, useState, useEffect } from "react";
 
+import axios from "axios";
 import Wallet from "caip-wallet";
 import Client, { CLIENT_EVENTS } from "@walletconnect/client";
 import { SessionTypes } from "@walletconnect/types";
 
 import KeyValueStorage from "keyvaluestorage";
-import { formatJsonRpcError } from "@json-rpc-tools/utils";
+import { formatJsonRpcResult, formatJsonRpcError } from "@json-rpc-tools/utils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import * as navigation from "./navigation";
@@ -154,22 +155,26 @@ export const Provider = (props: any) => {
             }
             const chainId = requestEvent.chainId || chains[0];
             try {
+              const [namespace] = chainId.split(":");
+              const { data: jsonrpc } = await axios.get(
+                `https://blockchain-api.xyz/api/jsonrpc/${namespace}`,
+              );
               // TODO: needs improvement
-              const requiresApproval = wallet.auth[chainId].assert(
-                requestEvent.request,
+              const requiresApproval = jsonrpc.methods.sign.includes(
+                requestEvent.request.method,
               );
               if (requiresApproval) {
                 setRequest(requestEvent);
                 navigation.navigate("Modal");
               } else {
-                const response = await wallet.resolve(
-                  requestEvent.request,
+                const result = await wallet.request(requestEvent.request, {
                   chainId,
-                );
-                await client.respond({
-                  topic: requestEvent.topic,
-                  response,
                 });
+                const response = formatJsonRpcResult(
+                  requestEvent.request.id,
+                  result,
+                );
+                await client.respond({ topic: requestEvent.topic, response });
               }
             } catch (e) {
               const response = formatJsonRpcError(
@@ -218,7 +223,8 @@ export const Provider = (props: any) => {
           return;
         }
         const chainId = request.chainId || chains[0];
-        const response = await wallet.approve(request.request, chainId);
+        const result = await wallet.request(request.request, { chainId });
+        const response = formatJsonRpcResult(request.request.id, result);
         await client.respond({
           topic: request.topic,
           response,
