@@ -1,5 +1,4 @@
 import React from "react";
-import { getChainConfig } from "caip-api";
 import { StyleSheet, View, Text, Image } from "react-native";
 
 import { ChainMetadata, getChainMetadata } from "../helpers";
@@ -22,7 +21,7 @@ const Blockchain = (props: BlockchainProps) => {
     <View style={styles.chain}>
       <View style={styles.chainMeta}>
         {metadata && <Image style={styles.chainLogo} source={metadata.logo} />}
-        <Text style={styles.chainName}>{getChainConfig(chainId).name}</Text>
+        <Text style={styles.chainName}>{metadata.name}</Text>
       </View>
       {address && (
         <Text adjustsFontSizeToFit numberOfLines={1} style={styles.address}>
