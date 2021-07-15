@@ -17,6 +17,11 @@ export const CHAIN_METADATA: { [namespace: string]: NamespaceMetadata } = {
       logo: require("../assets/optimism.png"),
       rgb: "233, 1, 1",
     },
+    "42": {
+      name: "Kovan",
+      logo: require("../assets/ethereum.png"),
+      rgb: "99, 125, 234",
+    },
     "69": {
       name: "Optimism Kovan",
       logo: require("../assets/optimism.png"),
@@ -37,8 +42,8 @@ export const CHAIN_METADATA: { [namespace: string]: NamespaceMetadata } = {
       logo: require("../assets/matic.png"),
       rgb: "43, 109, 239",
     },
-    "144545313136048": {
-      name: "Arbitrum Kovan",
+    "421611": {
+      name: "Arbitrum Testnet",
       logo: require("../assets/arbitrum.png"),
       rgb: "44, 55, 75",
     },

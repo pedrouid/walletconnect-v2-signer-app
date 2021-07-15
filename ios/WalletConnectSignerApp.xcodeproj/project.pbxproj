@@ -15,11 +15,11 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* WalletConnectSignerAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* WalletConnectSignerAppTests.m */; };
+		4095542F231DCD3FBB6E98B0 /* libPods-WalletConnectSignerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B5DDDE9AED572C9D2021FB /* libPods-WalletConnectSignerApp.a */; };
+		73F83775CE5EE3165C269091 /* libPods-WalletConnectSignerApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31C8DA61D0C8CCD16AE492C /* libPods-WalletConnectSignerApp-tvOSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		86C1C862ACF9FBD792E3A537 /* libPods-WalletConnectSignerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25BC75546FE0CC9167EB80 /* libPods-WalletConnectSignerApp.a */; };
-		D1F805F7CDFCC205DD1B278F /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C0A4DBDE6040C55C2D9678 /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a */; };
-		EB2E3B2B4BF6779CD049B281 /* libPods-WalletConnectSignerApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C768A7B618CB5BF7C558104 /* libPods-WalletConnectSignerApp-tvOSTests.a */; };
-		F8FA5911A3625E512540786A /* libPods-WalletConnectSignerApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8311B58C6BDE88C4BE1B9C /* libPods-WalletConnectSignerApp-tvOS.a */; };
+		AC8DB14AA16B3ABDAD4BDAF4 /* libPods-WalletConnectSignerApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E0FD241BB18D4804960F2C /* libPods-WalletConnectSignerApp-tvOS.a */; };
+		DA840AD81C858BD129D45EBE /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3173264DED7DB96D5A57440D /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,29 +44,29 @@
 		00E356EE1AD99517003FC87E /* WalletConnectSignerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalletConnectSignerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* WalletConnectSignerAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletConnectSignerAppTests.m; sourceTree = "<group>"; };
-		0CC85F24CF107E3F7BA799E8 /* Pods-WalletConnectSignerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp.release.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp.release.xcconfig"; sourceTree = "<group>"; };
-		0CE325EA9BEDA0528244A1E1 /* Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-tvOSTests/Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* WalletConnectSignerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalletConnectSignerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = WalletConnectSignerApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = WalletConnectSignerApp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = WalletConnectSignerApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WalletConnectSignerApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WalletConnectSignerApp/main.m; sourceTree = "<group>"; };
-		1C768A7B618CB5BF7C558104 /* libPods-WalletConnectSignerApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletConnectSignerApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		157902824E9F429C3176E7C2 /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		1A09B8B668E20CC25B3451F2 /* Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-tvOSTests/Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		23114A69DB1964FBD84301B7 /* Pods-WalletConnectSignerApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-tvOS/Pods-WalletConnectSignerApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* WalletConnectSignerApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WalletConnectSignerApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* WalletConnectSignerApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WalletConnectSignerApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CB5479B4BB6731C5D04DE0F /* Pods-WalletConnectSignerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp.debug.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp.debug.xcconfig"; sourceTree = "<group>"; };
-		7ADE50BC124192CC4540D5E7 /* Pods-WalletConnectSignerApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-tvOS/Pods-WalletConnectSignerApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		3173264DED7DB96D5A57440D /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CCBB66C09B721A69EEEDCE /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		522BBAE6B60D3D9C0E1F9D38 /* Pods-WalletConnectSignerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp.debug.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		67E0FD241BB18D4804960F2C /* libPods-WalletConnectSignerApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletConnectSignerApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D7C99839A5AD9B37EC35916 /* Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-tvOSTests/Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = WalletConnectSignerApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AB37D8DB8B0BEA7DBCE2D15A /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AE25BC75546FE0CC9167EB80 /* libPods-WalletConnectSignerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletConnectSignerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6C0A4DBDE6040C55C2D9678 /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D35A24A3EE9246F00864F42E /* Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-tvOSTests/Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		DA8311B58C6BDE88C4BE1B9C /* libPods-WalletConnectSignerApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletConnectSignerApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31C8DA61D0C8CCD16AE492C /* libPods-WalletConnectSignerApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletConnectSignerApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E77E97F6D2A82872E5A61F0B /* Pods-WalletConnectSignerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp.release.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp.release.xcconfig"; sourceTree = "<group>"; };
+		E78F2C685FA741A74D54CF0D /* Pods-WalletConnectSignerApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-tvOS/Pods-WalletConnectSignerApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E8B5DDDE9AED572C9D2021FB /* libPods-WalletConnectSignerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletConnectSignerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F74DED25312DE939ECA8675C /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		FF34F55B94E0F4E8F6095E3B /* Pods-WalletConnectSignerApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalletConnectSignerApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-WalletConnectSignerApp-tvOS/Pods-WalletConnectSignerApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1F805F7CDFCC205DD1B278F /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a in Frameworks */,
+				DA840AD81C858BD129D45EBE /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86C1C862ACF9FBD792E3A537 /* libPods-WalletConnectSignerApp.a in Frameworks */,
+				4095542F231DCD3FBB6E98B0 /* libPods-WalletConnectSignerApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8FA5911A3625E512540786A /* libPods-WalletConnectSignerApp-tvOS.a in Frameworks */,
+				AC8DB14AA16B3ABDAD4BDAF4 /* libPods-WalletConnectSignerApp-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB2E3B2B4BF6779CD049B281 /* libPods-WalletConnectSignerApp-tvOSTests.a in Frameworks */,
+				73F83775CE5EE3165C269091 /* libPods-WalletConnectSignerApp-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,14 +125,14 @@
 		04B1703D64D5437C61473DB7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5CB5479B4BB6731C5D04DE0F /* Pods-WalletConnectSignerApp.debug.xcconfig */,
-				0CC85F24CF107E3F7BA799E8 /* Pods-WalletConnectSignerApp.release.xcconfig */,
-				AB37D8DB8B0BEA7DBCE2D15A /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig */,
-				F74DED25312DE939ECA8675C /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig */,
-				FF34F55B94E0F4E8F6095E3B /* Pods-WalletConnectSignerApp-tvOS.debug.xcconfig */,
-				7ADE50BC124192CC4540D5E7 /* Pods-WalletConnectSignerApp-tvOS.release.xcconfig */,
-				0CE325EA9BEDA0528244A1E1 /* Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig */,
-				D35A24A3EE9246F00864F42E /* Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig */,
+				522BBAE6B60D3D9C0E1F9D38 /* Pods-WalletConnectSignerApp.debug.xcconfig */,
+				E77E97F6D2A82872E5A61F0B /* Pods-WalletConnectSignerApp.release.xcconfig */,
+				43CCBB66C09B721A69EEEDCE /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig */,
+				157902824E9F429C3176E7C2 /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig */,
+				E78F2C685FA741A74D54CF0D /* Pods-WalletConnectSignerApp-tvOS.debug.xcconfig */,
+				23114A69DB1964FBD84301B7 /* Pods-WalletConnectSignerApp-tvOS.release.xcconfig */,
+				6D7C99839A5AD9B37EC35916 /* Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig */,
+				1A09B8B668E20CC25B3451F2 /* Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -156,10 +156,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				AE25BC75546FE0CC9167EB80 /* libPods-WalletConnectSignerApp.a */,
-				C6C0A4DBDE6040C55C2D9678 /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a */,
-				DA8311B58C6BDE88C4BE1B9C /* libPods-WalletConnectSignerApp-tvOS.a */,
-				1C768A7B618CB5BF7C558104 /* libPods-WalletConnectSignerApp-tvOSTests.a */,
+				E8B5DDDE9AED572C9D2021FB /* libPods-WalletConnectSignerApp.a */,
+				3173264DED7DB96D5A57440D /* libPods-WalletConnectSignerApp-WalletConnectSignerAppTests.a */,
+				67E0FD241BB18D4804960F2C /* libPods-WalletConnectSignerApp-tvOS.a */,
+				A31C8DA61D0C8CCD16AE492C /* libPods-WalletConnectSignerApp-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,11 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "WalletConnectSignerAppTests" */;
 			buildPhases = (
-				DF50320E9A1DBC2A11749D17 /* [CP] Check Pods Manifest.lock */,
+				508E35BC8C3B9058FA6590A7 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				1F479C1474914B94E25B5559 /* [CP] Copy Pods Resources */,
+				FD8BA7514205E9917E8AA9E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,13 +224,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "WalletConnectSignerApp" */;
 			buildPhases = (
-				CB6FEBFFCB791E37BEAC5398 /* [CP] Check Pods Manifest.lock */,
+				53E3C705E472610631C786BD /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				AF7D0756F995734B044F7E4F /* [CP] Copy Pods Resources */,
+				632EC48ED9A510A4F709C770 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,7 +245,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "WalletConnectSignerApp-tvOS" */;
 			buildPhases = (
-				02B18831801CEEE9F4D590F3 /* [CP] Check Pods Manifest.lock */,
+				0322529CB3D19D1A75E5EE33 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -265,7 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "WalletConnectSignerApp-tvOSTests" */;
 			buildPhases = (
-				9225E4C4B67591157CEA3249 /* [CP] Check Pods Manifest.lock */,
+				105E49B38ED7E758B6B359FE /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -377,7 +377,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		02B18831801CEEE9F4D590F3 /* [CP] Check Pods Manifest.lock */ = {
+		0322529CB3D19D1A75E5EE33 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -399,38 +399,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1F479C1474914B94E25B5559 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		9225E4C4B67591157CEA3249 /* [CP] Check Pods Manifest.lock */ = {
+		105E49B38ED7E758B6B359FE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -452,24 +421,43 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AF7D0756F995734B044F7E4F /* [CP] Copy Pods Resources */ = {
+		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native Code And Images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		508E35BC8C3B9058FA6590A7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB6FEBFFCB791E37BEAC5398 /* [CP] Check Pods Manifest.lock */ = {
+		53E3C705E472610631C786BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -491,26 +479,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF50320E9A1DBC2A11749D17 /* [CP] Check Pods Manifest.lock */ = {
+		632EC48ED9A510A4F709C770 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp/Pods-WalletConnectSignerApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -549,6 +532,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD8BA7514205E9917E8AA9E5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests/Pods-WalletConnectSignerApp-WalletConnectSignerAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -606,7 +606,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB37D8DB8B0BEA7DBCE2D15A /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig */;
+			baseConfigurationReference = 43CCBB66C09B721A69EEEDCE /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -633,7 +633,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F74DED25312DE939ECA8675C /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig */;
+			baseConfigurationReference = 157902824E9F429C3176E7C2 /* Pods-WalletConnectSignerApp-WalletConnectSignerAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -657,7 +657,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CB5479B4BB6731C5D04DE0F /* Pods-WalletConnectSignerApp.debug.xcconfig */;
+			baseConfigurationReference = 522BBAE6B60D3D9C0E1F9D38 /* Pods-WalletConnectSignerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -684,7 +684,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CC85F24CF107E3F7BA799E8 /* Pods-WalletConnectSignerApp.release.xcconfig */;
+			baseConfigurationReference = E77E97F6D2A82872E5A61F0B /* Pods-WalletConnectSignerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -709,7 +709,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF34F55B94E0F4E8F6095E3B /* Pods-WalletConnectSignerApp-tvOS.debug.xcconfig */;
+			baseConfigurationReference = E78F2C685FA741A74D54CF0D /* Pods-WalletConnectSignerApp-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -740,7 +740,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7ADE50BC124192CC4540D5E7 /* Pods-WalletConnectSignerApp-tvOS.release.xcconfig */;
+			baseConfigurationReference = 23114A69DB1964FBD84301B7 /* Pods-WalletConnectSignerApp-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -771,7 +771,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CE325EA9BEDA0528244A1E1 /* Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 6D7C99839A5AD9B37EC35916 /* Pods-WalletConnectSignerApp-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -802,7 +802,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D35A24A3EE9246F00864F42E /* Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 1A09B8B668E20CC25B3451F2 /* Pods-WalletConnectSignerApp-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

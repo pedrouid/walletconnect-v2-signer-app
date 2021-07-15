@@ -12,7 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as navigation from "./navigation";
 import {
   DEFAULT_RELAY_PROVIDER,
-  DEFAULT_METHODS,
+  DEFAULT_EIP155_METHODS,
   DEFAULT_TEST_CHAINS,
   DEFAULT_APP_METADATA,
 } from "./constants";
@@ -134,7 +134,7 @@ export const Provider = (props: any) => {
             }
             const unsupportedMethods = [];
             _proposal.permissions.jsonrpc.methods.forEach((method) => {
-              if (DEFAULT_METHODS.includes(method)) {
+              if (DEFAULT_EIP155_METHODS.includes(method)) {
                 return;
               }
               unsupportedMethods.push(method);
