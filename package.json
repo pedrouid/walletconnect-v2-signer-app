@@ -34,6 +34,8 @@
     "@react-navigation/stack": "^5.14.3",
     "@walletconnect/client": "^2.0.0-beta.12",
     "caip-wallet": "^2.0.0-beta.4",
+    "cosmos-wallet": "^1.1.0",
+    "ethers": "^5.4.1",
     "node-libs-react-native": "^1.2.1",
     "react": "16.13.1",
     "react-native": "0.63.4",
