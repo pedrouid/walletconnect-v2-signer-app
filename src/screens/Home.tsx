@@ -21,10 +21,12 @@ const Home = () => {
             ) : (
               <View style={styles.sectionContainer}>
                 {accounts.map((account) => {
-                  const [address, chainId] = account.split("@");
+                  const [namespace, reference, address] = account.split(":");
                   return (
                     <React.Fragment key={`wallet:accounts:${account}`}>
-                      <Blockchain chainId={chainId} address={address}>
+                      <Blockchain
+                        chainId={namespace + ":" + reference}
+                        address={address}>
                         <View style={styles.separator} />
                       </Blockchain>
                     </React.Fragment>
