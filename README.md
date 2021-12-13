@@ -4,4 +4,4 @@ Signer App for WalletConnect
 
 ## License
 
-LGPL-3.0
+MIT
