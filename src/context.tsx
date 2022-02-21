@@ -203,8 +203,10 @@ export const Provider = (props: any) => {
           return;
         }
         const _accounts = accounts.filter((account) => {
-          const chainId = account.split("@")[1];
-          return proposal.permissions.blockchain.chains.includes(chainId);
+          const [namespace, reference] = account.split(":");
+          return proposal.permissions.blockchain.chains.includes(
+            `${namespace}:${reference}`,
+          );
         });
         const response = {
           state: { accounts: _accounts },
